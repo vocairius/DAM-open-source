@@ -1,0 +1,39 @@
+name: vault_dam
+description: "Vault DAM — gestor de activos digitales para macOS (indexado de disco de 2 TB)."
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # SQLite para escritorio y para el VM de Dart (tests). Justificación: la spec
+  # exige SQLite local con migraciones versionadas; sqflite_common_ffi permite
+  # el mismo código en macOS y en `flutter test` sin emulador.
+  sqflite_common_ffi: ^2.3.3
+
+  # Utilidades de rutas (join, basename, normalization). Alternativa nativa:
+  # manipular strings a mano, propenso a errores en macOS.
+  path: ^1.9.0
+
+  # Hash SHA-256 para detección de duplicados. Alternativa nativa: implementar
+  # el hashing a mano (innecesario y propenso a errores).
+  crypto: ^3.0.3
+
+  # Selector nativo/Web para que la vista previa lea nombres y tamaños de ZIP
+  # seleccionados. Alternativa nativa descartada: canales por plataforma y un
+  # input HTML distinto para web; el selector no abre ni extrae los archivos.
+  file_selector: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Lints estrictos: un PR no se considera terminado si compila con warnings.
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true

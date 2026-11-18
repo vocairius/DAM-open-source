@@ -1,0 +1,27 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Flutter / Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+coverage/
+
+# App runtime data (nunca se commitea: base de datos, miniaturas, backups, logs)
+*.db
+*.db-wal
+*.db-shm
+thumbnails/
+backups/
+logs/
+
+# Sintéticos de prueba generados en cada corrida
+assets/synthetic/*
+!assets/synthetic/.gitkeep
